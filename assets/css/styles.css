@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --base-100: #ffffff;
+    --base-200: #f4f4f4;
+    --base-300: #dfe5ebb3;
+    --base-content: #30313d;
+    --base-content-secondary: #5c5b67;
+    --primary: #06ab77;
+    --primary-content: #ffffff;
+}
+
+
+::selection {
+    background-color: var(--primary);
+    color: var(--primary-content);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--base-200);
+    padding: 0 1.25rem;
+}
+
+main {
+    max-width: 80rem;
+    min-height: 100svh;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 85svh;
+    padding: 1.5rem 2rem 3rem;
+    background-color: var(--base-100);
+    border: 1px solid transparent;
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 0fr 1fr;
+    gap: .875rem;
+}
+
+.note-title {
+    border: transparent;
+    border-bottom: 1px solid var(--base-300);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--base-content);
+    text-transform: capitalize;
+    padding: 0 0 1rem;
+}
+
+.note-description {
+    resize: none;
+    font-family: "Poppins", sans-serif;
+    color: var(--base-content-secondary);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625;
+    border: none;
+}
+
+.note-title:focus,
+.note-description:focus {
+    outline: none;
+    background-color: var(--base-100);
+}
+
+/* To-Do List and Text Note Buttons Styles */
+.btn-container {
+    position: absolute;
+    bottom: .75rem;
+    right: 2rem;
+}
+
+.to-do-list-btn,
+.text-note-btn {
+    color: var(--base-content);
+    font-size: .875rem;
+    font-weight: 500;
+    background-color: transparent;
+    background-color: var(--base-300);
+    padding: .5rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+}
+
+.to-do-list-btn svg,
+.text-note-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--base-content);
+}
+
+.text-note-btn {
+    display: none;
+}
+
+.to-do-list-btn:hover,
+.text-note-btn:hover {
+    background-color: rgba(6, 171, 119, 0.25);
+    color: rgb(7, 77, 55);
+    border-color: var(--primary);
+}
+
+.to-do-list-btn:hover svg,
+.text-note-btn:hover svg {
+    fill: rgb(7, 77, 55);
+}
+
+/* To-Do List Styles*/
+.to-do-container {
+    display: none;
+}
+
+#taskList {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--base-300);
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+}
+
+.to-do-container input[type="text"] {
+    width: calc(100% - 50px);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--base-content-secondary);
+    padding: 16px 20px;
+    border: none;
+}
+
+li.completed input[type="text"] {
+    text-decoration: line-through;
+}
+
+button.delete {
+    display: grid;
+    place-items: center;
+
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color .3s;
+    cursor: pointer;
+}
+
+button.delete:hover {
+    background-color: var(--base-200);
+}
+
+.to-do-container input[type="text"]:focus {
+    outline: none;
+}
+
+#addTaskBtn {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+
+    margin: .875rem 0 0;
+    border: none;
+    background-color: transparent;
+    color: var(--base-content-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#addTaskBtn:hover {
+    color: var(--primary);
+    outline: none;
+}
+
+#addTaskBtn svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--base-content-secondary);
+}
+
+#addTaskBtn:hover svg {
+    fill: var(--primary);
+}
+
+/* New Note Btn Styles */
+#newNoteBtn {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    background-color: var(--base-100);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+}
+
+#newNoteBtn svg {
+    fill: var(--base-content-secondary);
+    transition: fill .3s;
+    width: 50px;
+    height: 50px;
+}
+
+#newNoteBtn svg:hover {
+    fill: var(--primary);
+}
+
+/* tooltip */
+.tooltip {
+    position: absolute;
+    width: 105px;
+    padding: .75rem .75rem;
+    background-color: var(--base-content);
+    color: var(--primary-content);
+    font-size: .875rem;
+    text-align: center;
+    font-weight: 400;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity .4s ease-in-out .3s; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+.tooltip span {
+    background-color: var(--base-content-secondary);
+    padding: .25rem .5rem;
+    border: 1px solid var(--base-300);
+    border-radius: 5px;
+}
+
+.tooltip.left {
+    transform: translateX(-105px);
+}
+
+.tooltip.left::after {
+    content: '';
+    position: absolute;
+    right: -18px;
+    border: 10px solid transparent;
+    border-left-color: var(--base-content);
+}
+
+.tooltip.right {
+    transform: translateX(95px);
+}
+
+button.delete .tooltip {
+    width: 114px;
+}
+
+#addTaskBtn .tooltip {
+    transform: translateX(125px);
+}
+
+.tooltip.right::after {
+    content: '';
+    position: absolute;
+    left: -18px;
+    border: 10px solid transparent;
+    border-right-color: var(--base-content);
+}
+
+#newNoteBtn:hover .tooltip,
+#addTaskBtn:hover .tooltip,
+#taskList li:last-child .delete:hover .tooltip {
+    opacity: 1;                      
+}
+
+/* mobile screen styles */
+@media screen and (max-width: 576px) {
+    body {
+        background-color: var(--base-100);
+    }
+
+    .wrapper {
+        min-height: 100svh;
+        padding: 1rem 0 5rem;
+        border: none;
+        box-shadow: none;
+    }
+
+    #newNoteBtn {
+        width: 55px;
+        height: 55px;
+        right: .875rem;
+        bottom: .75rem;
+    }
+
+    #newNoteBtn svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn-container {
+        bottom: 1.5rem;
+        right: 3.875rem;
+    }
+
+    .to-do-list-btn,
+    .text-note-btn {
+        font-size: .875rem;
+        padding: .35rem 1rem;
+    }
+
+    .to-do-list-btn svg,
+    .text-note-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tooltip {
+        display: none;
+    }
+}
+
+/* tablet and laptop screen styles */
+@media screen and (min-width: 576px) and (max-width: 1373px) {
+    #newNoteBtn {
+        width: 55px;
+        height: 55px;
+        right: .875rem;
+        bottom: .75rem;
+    }
+
+    #newNoteBtn svg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .to-do-list-btn,
+    .text-note-btn {
+        font-size: .875rem;
+        padding: .4rem 1rem;
+    }
+}
