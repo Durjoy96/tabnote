@@ -22,12 +22,14 @@
     color: var(--primary-content);
 }
 
+/* body styles */
 body {
     font-family: "Poppins", sans-serif;
     background-color: var(--base-200);
     padding: 0 1.25rem;
 }
 
+/* main styles */
 main {
     max-width: 80rem;
     min-height: 100svh;
@@ -39,6 +41,7 @@ main {
     justify-content: center;
 }
 
+/* wrapper styles */
 .wrapper {
     width: 100%;
     min-height: 85svh;

@@ -1,16 +1,16 @@
-let browserTitle = document.querySelector("title");
-let inputTitle = document.querySelector(".note-title");
-let inputDescription = document.querySelector(".note-description");
+const browserTitle = document.querySelector("title");
+const inputTitle = document.querySelector(".note-title");
+const inputDescription = document.querySelector(".note-description");
 const taskList = document.getElementById("taskList");
 const toDoContainer = document.querySelector(".to-do-container");
 const toDoListBtn = document.querySelector(".to-do-list-btn");
-const textNoteBtn = document.querySelector(".text-note-btn");
+const textNoteBtn = document.querySelector(".text-note-btn"); 
 
-//replace the document title with the inputted title
+// Replace the document title with the inputted title
 inputTitle.addEventListener("input", () => {
     let inputValue = inputTitle.value;
     let words = inputValue.split(" ");
-    for (i = 0; i < words.length; i++) {
+    for (let i = 0; i < words.length; i++) {
         if (words[i]) {
             words[i] = words[i][0].toUpperCase() + words[i].slice(1);
         }
@@ -22,7 +22,7 @@ inputTitle.addEventListener("input", () => {
     };
 });
 
-//Default title, if there is no title inputted
+// Default title, if there is no title inputted
 function defaultTitle() {
     if (inputTitle.value) {
         document.title = inputTitle.value;
@@ -32,7 +32,7 @@ function defaultTitle() {
     };
 };
 
-//default title function execute
+// Default title function execute
 inputDescription.addEventListener("input", () => {
     defaultTitle();
 });
@@ -49,7 +49,7 @@ function setTitle(noteNumber) {
     document.title = 'Note - ' + noteNumber;
 }
 
-//generate new tab and link
+// Generate new tab and link
 function getNewTab() {
     let currentNoteNumber = getNoteNumber();
 
@@ -60,7 +60,7 @@ function getNewTab() {
     let newWindow = window.open(newUrl, '_blank');
 }
 
-//open new tab note btn
+// Open new tab note button
 document.getElementById('newNoteBtn').addEventListener('click', function () {
     getNewTab()
 });
@@ -68,8 +68,8 @@ document.getElementById('newNoteBtn').addEventListener('click', function () {
 // Set the initial title based on the URL when the page loads
 setTitle(getNoteNumber());
 
-//add to do tasks dynamically
-function addTask() {
+// Add to-do tasks dynamically
+function addTask(taskTextValue = '', isChecked = false) {
     const taskItem = document.createElement("li");
 
     const checkbox = document.createElement("input");
@@ -79,7 +79,7 @@ function addTask() {
             taskItem.classList.add("completed");
         } else {
             taskItem.classList.remove("completed");
-        };
+        }
     };
 
     const taskText = document.createElement("input");
@@ -101,12 +101,12 @@ function addTask() {
     taskList.appendChild(taskItem);
 };
 
-//default title function execute
+// Default title function execute
 document.getElementById("addTaskBtn").addEventListener("click", () => {
     addTask();
 });
 
-//to-do list btn 
+// To-do list button
 let isTaskAdded = false;
 toDoListBtn.addEventListener("click", () => {
     document.querySelector("textarea").style.display = "none";
@@ -120,7 +120,7 @@ toDoListBtn.addEventListener("click", () => {
     }
 });
 
-//text note btn
+// Text note button
 textNoteBtn.addEventListener("click", () => {
     document.querySelector("textarea").style.display = "block";
     toDoContainer.style.display = "none";
@@ -128,21 +128,21 @@ textNoteBtn.addEventListener("click", () => {
     textNoteBtn.style.display = "none";
 });
 
-//new tab note shortcut 
+// New tab note shortcut
 document.addEventListener("keydown", function (e) {
     if (e.altKey && e.key === "n") {
         getNewTab();
     };
 });
 
-//add new to-do task shortcut
+// Add new to-do task shortcut
 document.addEventListener("keydown", function (e) {
     if (e.altKey && e.key === "a" && toDoListBtn.style.display === "none") {
         addTask();
     }
 });
 
-//delete a to-do task item shortcut 
+// Delete a to-do task item shortcut 
 document.addEventListener("keydown", function (e) {
     if (e.shiftKey && e.key === "D" && toDoListBtn.style.display === "none") {
         taskList.removeChild(taskList.lastElementChild);
