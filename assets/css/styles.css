@@ -164,13 +164,15 @@ input[type="checkbox"] {
     width: calc(100% - 50px);
     font-size: 1.125rem;
     font-weight: 400;
-    color: var(--base-content-secondary);
+    color: var(--base-content);
     padding: 16px 20px;
     border: none;
 }
 
 li.completed input[type="text"] {
-    text-decoration: line-through;
+    text-decoration: 1.5px line-through var(--base-content-secondary);
+    color: var(--base-content-secondary);
+    pointer-events: none;
 }
 
 button.delete {
