@@ -90,7 +90,7 @@ function addTask(taskTextValue = '', isChecked = false) {
 
     const taskDelete = document.createElement("button");
     taskDelete.classList.add("delete");
-    taskDelete.innerHTML = `<span class="tooltip right"><span>Shift</span> + <span>D</span></span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill=" #dc3545"><path d="M292.31-140q-29.92 0-51.12-21.19Q220-182.39 220-212.31V-720h-40v-60h180v-35.38h240V-780h180v60h-40v507.69Q740-182 719-161q-21 21-51.31 21H292.31ZM680-720H280v507.69q0 5.39 3.46 8.85t8.85 3.46h375.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-720ZM376.16-280h59.99v-360h-59.99v360Zm147.69 0h59.99v-360h-59.99v360ZM280-720v520-520Z"/></svg>`;
+    taskDelete.innerHTML = `<span class="tooltip right"><span>Alt</span> + <span>Shift</span> + <span>D</span></span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill=" #dc3545"><path d="M292.31-140q-29.92 0-51.12-21.19Q220-182.39 220-212.31V-720h-40v-60h180v-35.38h240V-780h180v60h-40v507.69Q740-182 719-161q-21 21-51.31 21H292.31ZM680-720H280v507.69q0 5.39 3.46 8.85t8.85 3.46h375.38q4.62 0 8.46-3.85 3.85-3.84 3.85-8.46V-720ZM376.16-280h59.99v-360h-59.99v360Zm147.69 0h59.99v-360h-59.99v360ZM280-720v520-520Z"/></svg>`;
     taskDelete.addEventListener("click", () => {
         taskList.removeChild(taskItem);
     });
@@ -144,7 +144,7 @@ document.addEventListener("keydown", function (e) {
 
 // Delete a to-do task item shortcut 
 document.addEventListener("keydown", function (e) {
-    if (e.shiftKey && e.key === "D" && toDoListBtn.style.display === "none") {
+    if (e.altKey && e.shiftKey && e.key === "D" && toDoListBtn.style.display === "none") {
         taskList.removeChild(taskList.lastElementChild);
     };
 });

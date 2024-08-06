@@ -294,7 +294,12 @@ button.delete:hover {
 }
 
 button.delete .tooltip {
-    width: 114px;
+    width: 128px;
+    font-size: .75rem;
+}
+
+button.delete .tooltip span {
+    padding: .15rem .25rem;
 }
 
 #addTaskBtn .tooltip {
