@@ -265,7 +265,7 @@ button.delete:hover {
     font-weight: 400;
     border-radius: 8px;
     opacity: 0;
-    transition: opacity .4s ease-in-out .3s; 
+    transition: opacity .4s ease-in-out .3s;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     visibility: hidden;
 }
@@ -317,8 +317,8 @@ button.delete .tooltip span {
 #newNoteBtn:hover .tooltip,
 #addTaskBtn:hover .tooltip,
 #taskList li:last-child .delete:hover .tooltip {
-    opacity: 1;    
-    visibility: visible;           
+    opacity: 1;
+    visibility: visible;
 }
 
 /* mobile screen styles */
